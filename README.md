@@ -15,8 +15,8 @@ Opened for further contributions and ideas.
    - Current container runs locally and does not require modification at the networking level.
 
 2. **Testing Plan**
-   - Set the image to an older version and shorten the watch period to validate automatic updates.
-   - Validate the 3-month cycle (per documentation) for automated updates.
+   - Set the image to an older version and shorten the watch period to validate automatic updates - set enviroment with short image update interval
+   - ~~Validate the 3-month cycle (per documentation) for automated updates.~~ Was found that this is possible
 
 3. **Select Environment for Testing**
    - Sandpit environments or local setups?
@@ -27,16 +27,16 @@ Opened for further contributions and ideas.
    - Preliminary findings suggest minimal interference from Watchtower in functionality.
 
 5. **Configuration Monitoring Solutions**
-   - Explore GitHub workflows.
+   - Explore GitHub workflows for configuration changes?
    - Investigate writing workflows using GitHub Docs.
    - CI/CD could be valuable for monitoring and managing configurations.
 
 6. **Authentication Concerns**
-   - Evaluate potential disruptions due to authentication changes.
-   - Identify how notifications can alert if issues arise.
+   - Evaluate potential disruptions due to authentication changes - see git hub workflows?
+   - Identify how notifications can alert if issues arise - possible elastic solution?
 
 7. **Heartbeat Implementation**
-   - Consider implementing a heartbeat mechanism for Elastic Stack.
+   - Consider implementing a heartbeat mechanism for Elastic Stack/if migrated to GCP heartbeat would be better?
 
 8. **Cloud Migration**
    - Investigate migrating to Cloud Run.
@@ -50,7 +50,7 @@ Opened for further contributions and ideas.
 ## Testing Environment
 
 - **Environment Setup**:
-  - Running Docker Engine (Linux version required for engine compatibility).
+  - Running Docker Engine (Linux version required for engine compatibility) - Images Present
   
 - **Container Status**:
   - Fully functional based on the `docker-compose.yml` file below.
