@@ -1,4 +1,4 @@
-# syn-support-watch-tower-concept
+# WatchTower Concept
 
 Initial idea: Deploy the Watchtower image locally to appliances to monitor for image upgrades and automatically update them. The ideal long-term solution would involve running them from Cloud Run, enabling full CI/CD implementation and allowing for notification and heartbeat integration.
 
