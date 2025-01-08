@@ -9,7 +9,7 @@ Opened for further contributions and ideas.
 
 ---
 
-## To-Do List
+## Ideas/Contributions
 
 1. **Container Running Off a Reverse Proxy?**
    - Current container runs locally and does not require modification at the networking level.
