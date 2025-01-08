@@ -11,7 +11,7 @@ Opened for further contributions and ideas.
 
 ## Ideas/Contributions
 
-1. **Container Running Off a Reverse Proxy?**
+1. ~~**Container Running Off a Reverse Proxy?~~
    - Current container runs locally and does not require modification at the networking level.
 
 2. **Testing Plan**
@@ -19,17 +19,18 @@ Opened for further contributions and ideas.
    - ~~Validate the 3-month cycle (per documentation) for automated updates.~~ Was found that this is possible
 
 3. **Select Environment for Testing**
-   - Sandpit environments or local setups?
+   - Sandpit environments or local setups - Customer candidate for testing?
 
 4. **Review Existing Environments**
    - Assess how customized they are.
    - Investigate how `docker-compose` can be altered to include Watchtower.
-   - Preliminary findings suggest minimal interference from Watchtower in functionality.
+   - Preliminary findings suggest minimal interference from Watchtower in functionality - although it does appear to set its own network?
 
 5. **Configuration Monitoring Solutions**
    - Explore GitHub workflows for configuration changes?
    - Investigate writing workflows using GitHub Docs.
    - CI/CD could be valuable for monitoring and managing configurations.
+   - Explore methods to detect and manage configuration changes effectively?
 
 6. **Authentication Concerns**
    - Evaluate potential disruptions due to authentication changes - see git hub workflows?
@@ -42,10 +43,9 @@ Opened for further contributions and ideas.
    - Investigate migrating to Cloud Run.
    - Cloud Run could enhance CI/CD practicality and make alert handling more efficient.
 
-9. **Configuration Change Detection**
-   - Explore methods to detect and manage configuration changes effectively.
 
----
+
+--
 
 ## Testing Environment
 
