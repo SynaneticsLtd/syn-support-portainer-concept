@@ -47,8 +47,7 @@ Deploy an instance of the Portainer image locally on appliances to:
 ## Review Existing Environments
 1. Assess customization levels.
 2. Investigate modifications to `docker-compose` files to include Portainer agents.
-3. Confirm minimal interference from Watchtower functionality:
-   - Note: Watchtower appears to set its own network.
+
 
 ---
 
