@@ -1,11 +1,6 @@
-# WatchTower Concept
+# Portainer Concept
 
-Initial idea: Deploy the Watchtower image locally to appliances to monitor for image upgrades and automatically update them. The ideal long-term solution would involve running them from Cloud Run, enabling full CI/CD implementation and allowing for notification and heartbeat integration.
-
-Opened for further contributions and ideas.
-
-- **GitHub - [containrrr/watchtower](https://github.com/containrrr/watchtower)**: A process for automating Docker container base image updates.
-- **GitHub - [yorkshire-and-humber-care-record/fhir-appliance](https://github.com/yorkshire-and-humber-care-record/fhir-appliance)**: Documentation and configuration files for running Interweave Connect (aka FHIR Appliance).
+Initial idea: Deploy an instance of portainer image locally to appliances to monitor for image upgrades and automatically update them. The ideal long-term solution would involve running them from Cloud Run, enabling full CI/CD implementation and allowing for notification and heartbeat integration. It was recently discovered it is possible to attach a portainer agent to a portainer server so create a centralized management portal. Further investigation is required to identify the possibilities.
 
 ---
 
@@ -23,7 +18,7 @@ Opened for further contributions and ideas.
 
 4. **Review Existing Environments**
    - Assess how customized they are.
-   - Investigate how `docker-compose` can be altered to include Watchtower.
+   - Investigate how `docker-compose` can be altered to include portainer.
    - Preliminary findings suggest minimal interference from Watchtower in functionality - although it does appear to set its own network?
 
 5. **Configuration Monitoring Solutions**
