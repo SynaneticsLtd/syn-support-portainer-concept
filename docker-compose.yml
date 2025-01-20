@@ -38,14 +38,7 @@ services:
       # If publishing patient registrations to regional PIX service then copy your client certificates and keys to this folder
       - ./pix:/app/pix
       # For windows server/windows containers use
-      # - ./pix:C:/app/pix
-  watchtower:
-    image: containrrr/watchtower
-    restart: always
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      - WATCHTOWER_POLL_INTERVAL=7776000  # Every 3 months (90 days)
+      # - ./pix:C:/app/pi
 
     networks:
       - default
