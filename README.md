@@ -1,51 +1,85 @@
 # Portainer Concept
 
-Initial idea: Deploy an instance of portainer image locally to appliances to monitor for image upgrades and automatically update them. The ideal long-term solution would involve running them from Cloud Run, enabling full CI/CD implementation and allowing for notification and heartbeat integration. It was recently discovered it is possible to attach a portainer agent to a portainer server so create a centralized management portal. Further investigation is required to identify the possibilities.
+## Initial Idea
+Deploy an instance of the Portainer image locally on appliances to:
+- Monitor for image upgrades.
+- Automatically update them.
+
+**Long-term Solution:**
+- Run Portainer instances from **Cloud Run**.
+- Enable full CI/CD implementation.
+- Allow for notification and heartbeat integration.
+
+**Centralized Management:**
+- Attach a Portainer agent to a Portainer server to create a centralized management portal.
+- **Further Investigation Required**: Identify additional possibilities.
 
 ---
 
 ## Ideas/Contributions
 
-1. ~~**Container Running Off a Reverse Proxy?~~
-   - Current container runs locally and does not require modification at the networking level.
+### Container Running Off a Reverse Proxy?
+- Current container runs locally without requiring modification at the networking level.
 
-2. **Testing Plan**
-   - Set the image to an older version and shorten the watch period to validate automatic updates - set enviroment with short image update interval
-   - ~~Validate the 3-month cycle (per documentation) for automated updates.~~ Was found that this is possible
+---
 
-3. **Select Environment for Testing**
-   - Sandpit environments or local setups - Customer candidate for testing?
+## Testing Plan
 
-4. **Review Existing Environments**
-   - Assess how customized they are.
-   - Investigate how `docker-compose` can be altered to include portainer.
-   - Preliminary findings suggest minimal interference from Watchtower in functionality - although it does appear to set its own network?
+1. **Validate Automatic Updates**
+   - Set the image to an older version.
+   - Shorten the watch period to confirm updates occur as expected.
 
-5. **Configuration Monitoring Solutions**
-   - Explore GitHub workflows for configuration changes?
-   - Investigate writing workflows using GitHub Docs.
-   - CI/CD could be valuable for monitoring and managing configurations.
-   - Explore methods to detect and manage configuration changes effectively?
+2. **Integration Testing**
+   - Test the integration of Portainer agents with the centralized server.
+   - Ensure centralized updates and monitoring function as intended.
 
-6. **Authentication Concerns**
-   - Evaluate potential disruptions due to authentication changes - see git hub workflows?
-   - Identify how notifications can alert if issues arise - possible elastic solution?
+---
 
-7. **Heartbeat Implementation**
-   - Consider implementing a heartbeat mechanism for Elastic Stack/if migrated to GCP heartbeat would be better?
+## Select Environment for Testing
+- **Potential Options:**
+  - Sandpit environments.
+  - Local setups.
+- **Identify Candidates:**
+  - Look for customers suitable for testing the centralized management portal.
 
-8. **Cloud Migration**
-   - Investigate migrating to Cloud Run.
-   - Cloud Run could enhance CI/CD practicality and make alert handling more efficient.
+---
 
+## Review Existing Environments
+1. Assess customization levels.
+2. Investigate modifications to `docker-compose` files to include Portainer agents.
+3. Confirm minimal interference from Watchtower functionality:
+   - Note: Watchtower appears to set its own network.
 
+---
 
---
+## Configuration Monitoring Solutions
 
-## Testing Environment
+1. Explore **GitHub Workflows**:
+   - Automate configuration changes.
+   - Use **GitHub Docs** to create workflows.
 
-- **Environment Setup**:
-  - Running Docker Engine (Linux version required for engine compatibility) - Images Present
-  
-- **Container Status**:
-  - Fully functional based on the `docker-compose.yml` file below.
+2. Leverage **CI/CD Pipelines**:
+   - Monitor and manage configurations effectively.
+
+3. Investigate Portainer API Integrations:
+   - Detect and manage configuration changes.
+
+---
+
+## Authentication Concerns
+- **Potential Disruptions**:
+  - Assess risks due to authentication changes.
+
+- **Notifications**:
+  - Investigate solutions (Elastic or Google Cloud-based) to alert on issues.
+
+---
+
+## Heartbeat Implementation
+
+1. **Elastic Stack**:
+   - Consider implementing a heartbeat mechanism for monitoring.
+
+2. **Google Cloud Monitoring**:
+   - If migrating to GCP, evaluate integration with GCP's monitoring tools.
+   - Explore enhanced heartbeat solutions through GCP features.
