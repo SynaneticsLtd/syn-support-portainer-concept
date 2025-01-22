@@ -1,55 +1,45 @@
+# This Docker Compose file defines the deployment of a FHIR appliance and Portainer.
+
 version: "3.2"
 
-# Deployment of a FHIR appliance
-
 services:
+  # FHIR Appliance Service
   fhir-appliance:
-    image: synaneticsltd/synfhir-store:linux-latest #Old Image for Testing
-    restart: always
-    container_name: fhir-appliance
+    image: synaneticsltd/synfhir-store:1.0.0 # Docker image for the FHIR appliance
+    restart: always # Always restart the container if it stops
+    container_name: fhir-appliance # Name of the container
     environment:
-      # Settings required by moleculer (not configurable)
+      # Environment variables required by moleculer
       - METRICSENABLE=false
       - NAMESPACE=fhir-appliance
       - NODE_ENV=production
       - SERVICEDIR=services
       - SERVICES=**/*.service.js
     env_file:
-      - .env
+      - .env # External environment file
     ports:
-      # Public endpoint (https)
-      # Map 443 of the host to 443 in the container if using SSL
-      - 443:443
-      # Integration endpoint (https)
-      #- 8443:8443
-      # Public endpoint (http - not recommended for production - UNLESS this is an internal link and fronted by a 3rd party web proxy which provides SSL termination)
-      #- 3000:3000
-      # Integration endpoint (http)
-      - 8300:8300
+      # Port mappings
+      - 443:443 # Public endpoint (https)
+      - 8300:8300 # Integration endpoint (http)
     volumes:
-      # Copy .pem formatted SSL certificates: certificate, private key, passphrase (optional) and, if using mutal tls, root CA certificate to ./ssl if securing the endpoint
-      # For windows server/windows containers use
-      # - ./ssl:C:/app/ssl
-      - ./ssl:/app/ssl
-      # If using public key based JSON web token verification then copy public key of CA to ./jwt folder (see environment file for information)
-      - ./jwt:/app/jwt
-      # For windows server/windows containers use
-      # - ./jwt:C:/app/jwt
-      # If publishing patient registrations to regional PIX service then copy your client certificates and keys to this folder
-      - ./pix:/app/pix
-      # For windows server/windows containers use
-      # - ./pix:C:/app/pi
-
+      # Volume mappings
+      - ./ssl:/app/ssl # SSL certificates
+      - ./jwt:/app/jwt # JSON web token verification keys
+      - ./pix:/app/pix # Client certificates and keys for PIX service
     networks:
-      - default
-portainer:
-    image: portainer/portainer.ce
+      - default # Default network
+
+  # Portainer Service
+  portainer:
+    image: portainer/portainer.ce # Docker image for Portainer
     ports:
-      - "9000:9000"
-      - "8000:8000"
-    volumes:  
-      - /var/run/docker.sock:/var/run/docker.sock
-      - portainer_data:/data
-    restart: always
+      - "9000:9000" # Portainer web interface
+      - "8000:8000" # Portainer agent
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock # Docker socket for managing Docker
+      - portainer_data:/data # Data volume for Portainer
+    restart: always # Always restart the container if it stops
+
 volumes:
-  data:
+  data: # Named volume for storing data
+  portainer_data: # Named volume for Portainer
