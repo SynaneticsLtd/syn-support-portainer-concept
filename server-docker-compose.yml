@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  portainer-server:
+    image: portainer/portainer-ce:latest
+    container_name: portainer-server
+    restart: always
+    ports:
+      - "9443:9443" # Portainer UI (HTTPS)
+      - "8000:8000" # Agent communication
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock # Required to manage local Docker
+      - portainer_data:/data # Persistent data storage for Portainer
+    environment:
+      - AGENT_SECRET=my_secret_token # Match this secret with the agent
+    networks:
+      - default
+
+volumes:
+  portainer_data:
