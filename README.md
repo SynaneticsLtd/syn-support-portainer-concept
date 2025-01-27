@@ -46,9 +46,11 @@ Deploy an instance of the Portainer image locally on appliances to:
 
 ---
 
-## Review Existing Environments
-1. Assess customization levels.
-2. Investigate modifications to `docker-compose` files to include Portainer agents.
+## Aspects complete
+
+- Setup script for port opening - added error handling and port opening.
+- Modified compose file and added - server-compose to represent management VM/Platform.
+- Next stage is testing in local machine.
 
 
 ---
