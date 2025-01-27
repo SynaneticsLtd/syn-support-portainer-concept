@@ -4,6 +4,7 @@
 Deploy an instance of the Portainer image locally on appliances to:
 - Monitor for image upgrades.
 - Automatically update them.
+- Further automation includes portainer-setup.ps1 - opens required ports and produces log file for security.
 
 **Long-term Solution:**
 - Run Portainer instances from **Cloud Run**.
@@ -13,6 +14,7 @@ Deploy an instance of the Portainer image locally on appliances to:
 **Centralized Management:**
 - Attach a Portainer agent to a Portainer server to create a centralized management portal.
 - **Further Investigation Required**: Identify additional possibilities.
+
 
 ---
 
